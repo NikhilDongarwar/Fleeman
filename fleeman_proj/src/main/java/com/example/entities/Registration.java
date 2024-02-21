@@ -18,7 +18,7 @@ public class Registration {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private int regId; 
+	private Integer regId; 
 	
 	private String firstName; 
 	private String lastName; 
@@ -26,7 +26,6 @@ public class Registration {
 	private String mobileNumber; 
 	@Column(unique=true)
 	private String emailId;
-	@Column(unique=true)
 	private String password;
 	@Column(unique=true)
 	private String dLNumber;
@@ -37,7 +36,7 @@ public class Registration {
 	
 	@Column(nullable = true)
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="regId",referencedColumnName = "regId")
+	@JoinColumn(name="regId",referencedColumnName = "regId", nullable = true)
 	private Set<Booking> booking;
 	
 	
@@ -60,10 +59,10 @@ public class Registration {
 
 
 	
-	public int getRegId() {
+	public Integer getRegId() {
 		return regId;
 	}
-	public void setRegId(int regId) {
+	public void setRegId(Integer regId) {
 		this.regId = regId;
 	}
 	public String getFirstName() {

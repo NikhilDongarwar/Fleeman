@@ -12,9 +12,8 @@ import com.example.entities.State_master;
 import com.example.services.StateService;
 
 import java.util.List;
-
-@RestController
 @CrossOrigin("*")
+@RestController
 public class StateController {
 
     @Autowired
@@ -22,6 +21,8 @@ public class StateController {
 
     @GetMapping(value="api/states")
     public List<State_master> getAllStates() {
+    	System.out.println(stateService.getAllStates());
+    	
         return stateService.getAllStates();
     }
 }

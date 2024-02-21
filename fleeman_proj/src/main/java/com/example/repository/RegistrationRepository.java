@@ -13,8 +13,8 @@ import com.example.entities.Registration;
 public interface RegistrationRepository extends JpaRepository<Registration,Integer> {
 	
 	@Query(value = "select * from registration where email_id = :emailId and password = :password", nativeQuery = true)
-	public Registration getUserByEmailIdAndPass(@Param("emailId") String emailId, @Param("password") String password);  //use for user login 
+	public Registration getUserByEmailIdAndPass(@Param("emailId") String emailId, @Param("password") String password);
 	
 	@Query(value = "select * from registration where email_id = :emailId", nativeQuery = true)
-	public Registration getUserByEmail(@Param("emailId") String emailId);    //use handover
+	public Registration getUserByEmail(@Param("emailId") String emailId);
 }

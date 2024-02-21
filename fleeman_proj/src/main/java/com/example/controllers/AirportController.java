@@ -30,6 +30,8 @@ public class AirportController {
 	public List<Airport> getallAirport(){
 		return airportservice.getAirport();
 	}
+
+
 	
 
 }

@@ -1,24 +1,40 @@
 package com.example.controllers;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entities.Pdf_demo;
-import com.example.services.UserDetailsPDFService;
+import com.example.services.InvoiceService;
 
 @RestController
-public class UserDetailsController {
+@CrossOrigin("*")
+public class InvoiceController {
 
 	@Autowired
-    private  UserDetailsPDFService userDetailsPDFService;
+    private  InvoiceService PDFService;
+	
+	@PostMapping("api/generatepdf")
+	public void Generate(@RequestBody Pdf_demo pdfdemo) {
+		
+		PDFService.SaveDetails(pdfdemo);
+	}
+	
+	@GetMapping("api/generate/{Invoice_id}")
+	public Optional<Pdf_demo> Generate(@PathVariable int Invoice_id) {
+		
+		return PDFService.GetDetails(Invoice_id);
+	}
+
 
     
     
-    @PostMapping("/generatePdf")
+    /*@PostMapping("/generatePdf")
     public ResponseEntity<byte[]> generatePdf(@RequestBody Pdf_demo userDetails) {
         byte[] bytes = userDetailsPDFService.generateUserDetailsPDF(userDetails);
 
@@ -30,5 +46,5 @@ public class UserDetailsController {
                 .headers(headers)
                 .contentType(MediaType.APPLICATION_PDF)
                 .body(bytes);
-    }
+    }*/
 }

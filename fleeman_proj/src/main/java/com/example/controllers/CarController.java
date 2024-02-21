@@ -25,11 +25,20 @@ public class CarController {
 	public List<Car> getCarbyHubid(@PathVariable int hub_id){
 		return carservice.getCarbyHubid(hub_id);
 	}
-	
+	@GetMapping("api/getcars/{hub_id}/{cartpe_id}")
+	public List<Car> getCarbyHubAndCartpe(@PathVariable int hub_id,@PathVariable int cartpe_id){
+		return carservice.getCarbyCartypeAndHub(hub_id, cartpe_id);
+	}
 	@PutMapping("/{carId}/availability")
     public void updateCarAvailability(@PathVariable int carId, @RequestParam boolean isAvailable) {
 		
 		carservice.UpdateAvailable(carId, isAvailable);
 	}
+	 @PutMapping("api/{carId}/hubId")
+	    public void updateCarHubId(@PathVariable int carId, @RequestParam int hubId) {
+	         carservice.updateCarHubid(carId, hubId);
+	       
+	    }
+
 
 }

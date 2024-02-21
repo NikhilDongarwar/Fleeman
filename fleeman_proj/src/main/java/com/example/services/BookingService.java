@@ -20,4 +20,7 @@ public class BookingService
 	public void bookingDelete(int booking_id) {
 		bookingrepository.deleteById(booking_id);
 	}
+	public void updateCarcarid(int carcarid, int bookingId) {
+        bookingrepository.updateCarcaridByBookingId(carcarid, bookingId);
+    }
 }

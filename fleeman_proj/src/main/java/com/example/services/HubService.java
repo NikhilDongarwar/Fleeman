@@ -1,7 +1,6 @@
 package com.example.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +21,6 @@ public class HubService {
 		 
 		 return hubrepository.getHubsByAirportId(airport_id);
 		 }
-	 
-	 public Optional<Hub> getAllbyhubId(int hub_id){
-		 return hubrepository.findById(hub_id);
-	 }
 
 	
 

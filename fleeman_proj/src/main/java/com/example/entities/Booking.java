@@ -20,8 +20,19 @@ public class Booking {
 	
 	private int regId;
 	
+	private int carcarid;
+	private double estamount;
+
 	
-    public int getRegId() {
+    public int getCarcarid() {
+		return carcarid;
+	}
+
+	public void setCarcarid(int carcarid) {
+		this.carcarid = carcarid;
+	}
+
+	public int getRegId() {
 		return regId;
 	}
 
@@ -29,16 +40,27 @@ public class Booking {
 		this.regId = regId;
 	}
 
-	private int hub_id;
-	public int getHub_id() {
-		return hub_id;
+	private int pickuphub_id;
+	private int drophub_id;
+	
+
+
+
+	public int getPickuphub_id() {
+		return pickuphub_id;
 	}
 
-	public void setHub_id(int hub_id) {
-		this.hub_id = hub_id;
+	public void setPickuphub_id(int pickuphub_id) {
+		this.pickuphub_id = pickuphub_id;
 	}
 
+	public int getDrophub_id() {
+		return drophub_id;
+	}
 
+	public void setDrophub_id(int drophub_id) {
+		this.drophub_id = drophub_id;
+	}
 
 	private int car_id;
 	public int getBookingId() {
@@ -74,8 +96,7 @@ public class Booking {
 		this.car_id = car_id;
 	}
 
-	private double estamount;
-	
+		
 	
 	public double getEstamount() {
 		return estamount;
@@ -84,6 +105,15 @@ public class Booking {
 	public void setEstamount(double estamount) {
 		this.estamount = estamount;
 	}
+
+	@Override
+	public String toString() {
+		return "Booking [bookingId=" + bookingId + ", start_date=" + start_date + ", end_date=" + end_date + ", regId="
+				+ regId + ", carcarid=" + carcarid + ", estamount=" + estamount + ", pickuphub_id=" + pickuphub_id
+				+ ", drophub_id=" + drophub_id + ", car_id=" + car_id + "]";
+	}
+
+	
 
 	
 	

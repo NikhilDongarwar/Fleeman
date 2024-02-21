@@ -1,6 +1,7 @@
 package com.example.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ public class CarTypeService {
 	
 	public List<Cartype> getCarTypesbyhubId(int hub_id){
 		 return carrepository.findAllByHubId(hub_id);
+	}
+	
+	public Optional<Cartype> getCartypebyId(int id){
+		return carrepository.findById(id);
 	}
 
 }
